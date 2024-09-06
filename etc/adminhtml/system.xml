@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Alice Dean. All rights reserved.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="adyen_group_all_in_one">
+                <group id="adyen_required_settings">
+                    <field id="credential_id"
+                           translate="label comment"
+                           sortOrder="10"
+                           showInDefault="1"
+                           showInWebsite="1"
+                           showInStore="0">
+                        <label>Credential ID</label>
+                        <comment>Fill me in, so I can be used in the bin/magento commands to whitelist URLs</comment>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>
