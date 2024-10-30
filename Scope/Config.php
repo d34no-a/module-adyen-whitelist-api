@@ -16,6 +16,8 @@ class Config
     private const ADYEN_CREDENTIAL_ID_PATH = 'payment/adyen_group_all_in_one/adyen_required_settings/credential_id';
     private const ADYEN_TEST_API_KEY_PATH = 'payment/adyen_abstract/api_key_test';
     private const ADYEN_MERCHANT_ACCOUNT_PATH = 'payment/adyen_abstract/merchant_account';
+    private const ADYEN_COMPANY_ACCOUNT_PATH = 'payment/adyen_group_all_in_one/adyen_required_settings/company_account';
+    private const ADYEN_API_TYPE = 'payment/adyen_group_all_in_one/adyen_required_settings/adyen_api_type';
 
     /**
      * @param ScopeConfigInterface $scopeConfig
@@ -69,6 +71,38 @@ class Config
     {
         return $this->scopeConfig->getValue(
             self::ADYEN_MERCHANT_ACCOUNT_PATH,
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
+    }
+
+    /**
+     * Get Adyen company account
+     *
+     * @param string|null $storeId
+     *
+     * @return null|string
+     */
+    public function getAdyenCompanyAccount(?string $storeId = null): ?string
+    {
+        return $this->scopeConfig->getValue(
+            self::ADYEN_COMPANY_ACCOUNT_PATH,
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
+    }
+
+    /**
+     * Get Adyen API Type
+     *
+     * @param string|null $storeId
+     *
+     * @return null|string
+     */
+    public function getAdyenApiType(?string $storeId = null): ?string
+    {
+        return $this->scopeConfig->getValue(
+            self::ADYEN_API_TYPE,
             ScopeInterface::SCOPE_STORE,
             $storeId
         );
