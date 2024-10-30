@@ -19,6 +19,30 @@
                         <label>Credential ID</label>
                         <comment>Fill me in, so I can be used in the bin/magento commands to whitelist URLs</comment>
                     </field>
+                    <field id="company_account"
+                           translate="label comment"
+                           sortOrder="14"
+                           showInDefault="1"
+                           showInWebsite="1"
+                           showInStore="0">
+                        <label>Company Account</label>
+                        <comment>Adyen Company Account ID found in Adyen Admin</comment>
+                    </field>
+                    <field id="adyen_api_type"
+                           translate="label comment"
+                           type="select"
+                           sortOrder="50"
+                           showInDefault="1"
+                           showInWebsite="1"
+                           showInStore="0">
+                        <label>Adyen Api Type</label>
+                        <source_model>Deano\AdyenWhitelistApi\Model\Config\Source\AdyenApiType</source_model>
+                        <comment>
+                            Whether calls from this module should use merchant or company.
+                            You can find out which you need to use in the Adyen Admin by clicking the Adyen symbol in top left,
+                            and next to your account should be company or merchant.
+                        </comment>
+                    </field>
                 </group>
             </group>
         </section>
