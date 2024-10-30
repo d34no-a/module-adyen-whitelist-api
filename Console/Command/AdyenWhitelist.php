@@ -8,7 +8,9 @@ declare(strict_types=1);
 namespace Deano\AdyenWhitelistApi\Console\Command;
 
 use Deano\AdyenWhitelistApi\Service\AdyenApi;
+use GuzzleHttp\Psr7\Response;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\Console\Cli;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\Webapi\Rest\Request;
@@ -18,7 +20,6 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use GuzzleHttp\Psr7\Response;
 
 class AdyenWhitelist extends Command
 {
@@ -83,10 +84,10 @@ class AdyenWhitelist extends Command
             $this->processList($output);
         } else {
             $output->writeln('<error>Please specify mode: \'add\', \'remove\', \'list\'.</error>');
-            return Command::FAILURE;
+            return Cli::RETURN_FAILURE;
         }
 
-        return Command::SUCCESS;
+        return Cli::RETURN_SUCCESS;
     }
 
     /**
