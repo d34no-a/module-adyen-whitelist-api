@@ -13,6 +13,7 @@ Before you start using this module ensure that you have the following configurat
 - Test API Key
 - Test Client Key
 - Merchant Account
+- Adyen Api Type (Whether calls from this module should use merchant or company. You can find out which you need to use in the Adyen Admin by clicking the Adyen symbol in top left, and next to your account should be company or merchant.)
 
 ## Usage
 Remove all URLs from each store.
