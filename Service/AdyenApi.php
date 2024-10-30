@@ -16,6 +16,7 @@ use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\ResponseFactory;
 use Magento\Framework\Encryption\EncryptorInterface;
 use Magento\Framework\Serialize\Serializer\Json;
+use Symfony\Component\Console\Command\Command;
 
 class AdyenApi
 {
@@ -23,7 +24,7 @@ class AdyenApi
     const API_REQUEST_URI = 'https://management-test.adyen.com/';
 
     /** @var API request endpoint string  */
-    const API_REQUEST_ENDPOINT = 'v3/merchants/%s/apiCredentials/%s/allowedOrigins';
+    const API_REQUEST_ENDPOINT = 'v3/%s/%s/apiCredentials/%s/allowedOrigins';
 
     /**
      * @param ClientFactory $clientFactory
@@ -57,11 +58,14 @@ class AdyenApi
         ?string $storeId,
         ?string $originId
     ): Response {
+        $apiType = $this->config->getAdyenApiType($storeId);
+
         $endpoint = self::API_REQUEST_URI . sprintf(
-            self::API_REQUEST_ENDPOINT,
-            $this->config->getAdyenMerchantAccount($storeId),
-            $this->config->getAdyenCredentialId($storeId)
-        );
+                self::API_REQUEST_ENDPOINT,
+                $apiType,
+                ($apiType === 'companies') ? $this->config->getAdyenCompanyAccount($storeId) : $this->config->getAdyenMerchantAccount($storeId),
+                $this->config->getAdyenCredentialId($storeId)
+            );
 
         if ($originId) {
             $endpoint .= '/' . $originId;
