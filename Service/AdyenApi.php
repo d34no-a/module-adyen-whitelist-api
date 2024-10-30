@@ -16,7 +16,6 @@ use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\ResponseFactory;
 use Magento\Framework\Encryption\EncryptorInterface;
 use Magento\Framework\Serialize\Serializer\Json;
-use Symfony\Component\Console\Command\Command;
 
 class AdyenApi
 {
