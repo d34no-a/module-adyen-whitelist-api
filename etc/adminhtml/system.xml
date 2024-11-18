@@ -9,7 +9,7 @@
     <system>
         <section id="payment">
             <group id="adyen_group_all_in_one">
-                <group id="adyen_required_settings">
+                <group id="adyen_initial_setup">
                     <field id="credential_id"
                            translate="label comment"
                            sortOrder="10"
