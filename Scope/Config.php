@@ -13,11 +13,11 @@ use Magento\Store\Model\ScopeInterface;
 
 class Config
 {
-    private const ADYEN_CREDENTIAL_ID_PATH = 'payment/adyen_group_all_in_one/adyen_required_settings/credential_id';
+    private const ADYEN_CREDENTIAL_ID_PATH = 'payment/adyen_group_all_in_one/adyen_initial_setup/credential_id';
     private const ADYEN_TEST_API_KEY_PATH = 'payment/adyen_abstract/api_key_test';
     private const ADYEN_MERCHANT_ACCOUNT_PATH = 'payment/adyen_abstract/merchant_account';
-    private const ADYEN_COMPANY_ACCOUNT_PATH = 'payment/adyen_group_all_in_one/adyen_required_settings/company_account';
-    private const ADYEN_API_TYPE = 'payment/adyen_group_all_in_one/adyen_required_settings/adyen_api_type';
+    private const ADYEN_COMPANY_ACCOUNT_PATH = 'payment/adyen_group_all_in_one/adyen_initial_setup/company_account';
+    private const ADYEN_API_TYPE = 'payment/adyen_group_all_in_one/adyen_initial_setup/adyen_api_type';
 
     /**
      * @param ScopeConfigInterface $scopeConfig
